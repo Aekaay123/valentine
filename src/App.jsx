@@ -38,6 +38,7 @@ export default function FunnyValentineApp() {
 
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black font-[Poppins] p-4">
+
       {/* Background */}
       <motion.div
         className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,#ff00cc,transparent_40%),radial-gradient(circle_at_80%_70%,#ff4d6d,transparent_40%),radial-gradient(circle_at_50%_50%,#c084fc,transparent_40%)]"
@@ -103,8 +104,8 @@ export default function FunnyValentineApp() {
                 Will You Be My Valentine? 💘
               </motion.h1>
 
-              <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10 justify-center relative">
-                {/* YES */}
+              {/* YES Button centered absolutely */}
+              <div className="absolute inset-0 flex items-center justify-center z-20">
                 <motion.button
                   onClick={handleYesClick}
                   animate={{ scale: yesScale }}
@@ -119,8 +120,10 @@ export default function FunnyValentineApp() {
                     transition={{ repeat: Infinity, duration: 2 }}
                   />
                 </motion.button>
+              </div>
 
-                {/* NO */}
+              {/* NO Button */}
+              <div className="flex justify-center mt-48 sm:mt-60 relative z-20">
                 <motion.button
                   onClick={handleNoClick}
                   animate={{
@@ -137,7 +140,7 @@ export default function FunnyValentineApp() {
               </div>
 
               {/* Messages */}
-              <div className="mt-8 sm:mt-16 min-h-[50px]">
+              <div className="mt-8 sm:mt-16 min-h-[50px] relative z-20">
                 <AnimatePresence mode="wait">
                   {noCount > 0 && noCount <= 5 && (
                     <motion.p
